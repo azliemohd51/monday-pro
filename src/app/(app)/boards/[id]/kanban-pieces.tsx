@@ -2,6 +2,7 @@
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { Plus, Calendar } from "lucide-react";
 import type { Profile, Task, TaskStatus } from "@/lib/types";
+import { PRIORITY_LABELS } from "@/lib/types";
 import { Avatar } from "@/components/avatar";
 
 export function KanbanColumn({
@@ -79,7 +80,7 @@ export function KanbanCard({
           className="priority-pill"
           style={{ background: `${priorityColor}22`, color: priorityColor }}
         >
-          {task.priority}
+          {PRIORITY_LABELS[task.priority]}
         </span>
         <div className="flex items-center gap-2">
           {task.due_date && (

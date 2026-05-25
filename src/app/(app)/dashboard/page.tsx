@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AlertCircle, CheckCircle2, Clock, Inbox } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth";
 import { getMyTasks, getMyBoards } from "@/lib/queries";
-import { STATUS_LABELS, STATUS_COLORS, PRIORITY_COLORS, STATUS_ORDER } from "@/lib/types";
+import { STATUS_LABELS, STATUS_COLORS, PRIORITY_COLORS, PRIORITY_LABELS, STATUS_ORDER } from "@/lib/types";
 import type { TaskStatus } from "@/lib/types";
 
 export default async function DashboardPage() {
@@ -71,7 +71,7 @@ export default async function DashboardPage() {
                       className="priority-pill"
                       style={{ background: `${PRIORITY_COLORS[t.priority]}22`, color: PRIORITY_COLORS[t.priority] }}
                     >
-                      {t.priority}
+                      {PRIORITY_LABELS[t.priority]}
                     </span>
                     <span className="flex-1 text-sm truncate group-hover:text-accent">{t.title}</span>
                     {t.due_date && (
